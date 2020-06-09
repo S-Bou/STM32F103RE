@@ -1,0 +1,26 @@
+10:35:48 **** Incremental Build of configuration Debug for project Pruebas ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F103xE -DUSE_HAL_DRIVER -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Pruebas.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\Projects\STM32F103RE\Pruebas\STM32F103RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Pruebas.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Pruebas.elf
+ 
+arm-none-eabi-objdump -h -S  Pruebas.elf  > "Pruebas.list"
+arm-none-eabi-objcopy  -O ihex  Pruebas.elf  "Pruebas.hex"
+arm-none-eabi-objcopy  -O binary  Pruebas.elf  "Pruebas.bin"
+arm-none-eabi-objcopy  -O verilog  Pruebas.elf  "Pruebas.verilog"
+arm-none-eabi-size   Pruebas.elf 
+   text	   data	    bss	    dec	    hex	filename
+   4944	     20	   1572	   6536	   1988	Pruebas.elf
+Finished building: default.size.stdout
+ 
+Finished building: Pruebas.hex
+Finished building: Pruebas.bin
+Finished building: Pruebas.verilog
+Finished building: Pruebas.list
+ 
+ 
+ 
+ 
+
+10:35:49 Build Finished. 0 errors, 0 warnings. (took 1s.44ms)
+
